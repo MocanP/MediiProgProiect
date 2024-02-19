@@ -1,0 +1,31 @@
+﻿@page
+@model MediiProgProiect.Pages.Cumparari.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cumparare</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cumparare.Membru)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cumparare.Membru.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cumparare.MasinaID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cumparare.MasinaID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Cumparare?.ID">Edit</a> |
+    <a asp-page="./Index">Inapoi la lista</a>
+</div>

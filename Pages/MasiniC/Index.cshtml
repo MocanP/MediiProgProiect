@@ -1,0 +1,60 @@
+﻿@page "/"
+@model MediiProgProiect.Pages.MasiniC.IndexModel
+
+@{
+    ViewData["Title"] = "Masini";
+}
+
+<h1>Masinile Disponibile</h1>
+
+<p>
+    <a asp-page="Create">Create Inregistrare Noua</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MasinaC[0].Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MasinaC[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MasinaC[0].Pret)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MasinaC[0].DataFabricarii)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MasinaC[0].Vanzator.NumeVanzator)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MasinaC) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFabricarii)
+             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vanzator.NumeVanzator)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

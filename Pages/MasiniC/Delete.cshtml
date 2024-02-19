@@ -1,0 +1,46 @@
+﻿@page
+@model MediiProgProiect.Pages.MasiniC.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Stergere</h1>
+
+<h3>Esti sigur ca vrei sa stergi acest lucru?</h3>
+<div>
+    <h4>MasinaC</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MasinaC.Marca)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MasinaC.Marca)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MasinaC.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MasinaC.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MasinaC.Pret)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MasinaC.Pret)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MasinaC.DataFabricarii)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MasinaC.DataFabricarii)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="MasinaC.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Inapoi la lista</a>
+    </form>
+</div>

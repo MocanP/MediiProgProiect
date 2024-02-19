@@ -1,0 +1,39 @@
+﻿@page
+@model MediiProgProiect.Pages.Cumparari.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Cumparare</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cumparare.Membru.Email" class="control-label"></label>
+                <input asp-for="Cumparare.Membru.Email" class="form-control" />
+                <span asp-validation-for="Cumparare.MasinaC.Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cumparare.MasinaC.Marca" class="control-label"></label>
+                <input asp-for="Cumparare.MasinaC.Marca" class="form-control" />
+                <span asp-validation-for="Cumparare.MasinaC.Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Inapoi la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

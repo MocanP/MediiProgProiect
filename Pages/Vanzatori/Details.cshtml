@@ -1,0 +1,31 @@
+﻿@page
+@model MediiProgProiect.Pages.Vanzatori.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalii</h1>
+
+<div>
+    <h4>Informatii despre vanzator:</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vanzator.NumeVanzator)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vanzator.NumeVanzator)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vanzator.Telefon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vanzator.Telefon)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Vanzator?.ID">Edit</a> |
+    <a asp-page="./Index">Inapoi la lista</a>
+</div>

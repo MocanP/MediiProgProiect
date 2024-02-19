@@ -1,0 +1,75 @@
+﻿@page
+@model MediiProgProiect.Pages.Vanzatori.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de vanzatori</h1>
+<h6>Apeleaza numarul de telefon al vanzatorului daca esti interesat de cumpararea unei masini!</h6>
+<p>
+    <a asp-page="Create">Create Inregistrare Noua</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vanzator[0].NumeVanzator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vanzator[0].Telefon)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.DateVanzator.Vanzatori)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.VanzatorID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeVanzator)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefon)
+                </td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@item.ID">Select</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.DateVanzator.Masini != null)
+{
+    <h3>Masini puse la vanzare de catre persoana selectata</h3>
+    <table class="table">
+        @foreach (var item in Model.DateVanzator.Vanzatori)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.VanzatorID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @{
+                        foreach (var b in item.MasiniC)
+                        {
+                            @b.Marca @: @b.Model
+                            <br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
